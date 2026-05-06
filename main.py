@@ -1,5 +1,4 @@
 from email.mime.text import MIMEText
-
 from google import genai
 import os
 import smtplib
@@ -77,9 +76,10 @@ def save_contents(data):
 
 contents_data = load_content()
 
-for email, user in user_data["users"].items():
+for ROLL_NO, user in user_data["users"].items():
     index = user["current_index"]
     shlok_no = shlok_number[index]
+    email = os.environ[ROLL_NO]
     if  shlok_no not in contents_data:
         result = generate_shloka(shlok_no)
         contents_data[shlok_no]=result
@@ -90,7 +90,7 @@ for email, user in user_data["users"].items():
 
 
 
-    user_data["users"][email]["current_index"] += 1
+    user_data["users"][ROLL_NO]["current_index"] += 1
 
 
 
