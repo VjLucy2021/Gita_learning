@@ -1,4 +1,4 @@
-name: Daily Automation
+name: Schedule
 
 on:
   schedule:
