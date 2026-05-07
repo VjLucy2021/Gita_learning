@@ -79,7 +79,7 @@ contents_data = load_content()
 for ROLL_NO, user in user_data["users"].items():
     index = user["current_index"]
     shlok_no = shlok_number[index]
-    email = os.environ[ROLL_NO]
+    email = os.getenv(ROLL_NO)
     if  shlok_no not in contents_data:
         result = generate_shloka(shlok_no)
         contents_data[shlok_no]=result
