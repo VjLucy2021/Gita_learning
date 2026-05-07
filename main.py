@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import json
 
 load_dotenv()
-google_api= os.environ["GOOGLE_API"]
+google_api=os.environ["GOOGLE_API"]
 EMAIL_USER=os.environ["EMAIL"]
 EMAIL_PASS=os.environ["PASSWORD"]
 
