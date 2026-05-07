@@ -29,6 +29,7 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           ONE: ${{ secrets.ONE }}
+          TWO: ${{ secrets.TWO }}
 
       - name: Commit updated files
         run: |
