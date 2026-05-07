@@ -24,11 +24,16 @@ jobs:
 
       - name: Run main script
         run: python main.py
+        env:
+          GOOGLE_API: ${{ secrets.GOOGLE_API }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          ONE: ${{ secrets.ONE }}
 
-      - name: Commit updated user.json
+      - name: Commit updated files
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add user.json
-          git diff --cached --quiet || git commit -m "chore: update user.json [$(date -u '+%Y-%m-%d')]"
+          git add user.json contents.json
+          git diff --cached --quiet || git commit -m "chore: daily shloka update [$(date -u '+%Y-%m-%d')]"
           git push
