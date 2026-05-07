@@ -7,8 +7,8 @@ import json
 
 load_dotenv()
 google_api = os.getenv("GOOGLE_API")
-EMAIL_USER=os.environ["EMAIL"]
-EMAIL_PASS=os.environ["PASSWORD"]
+EMAIL_USER=os.getenv["EMAIL"]
+EMAIL_PASS=os.getenv["PASSWORD"]
 
 
 
