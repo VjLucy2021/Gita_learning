@@ -32,25 +32,37 @@ with open("user.json","r") as f:
 
 # Generating Shloka if not there in the contents.json
 def generate_shloka(shloka_number):
+    chapter, verse = shloka_number.strip().split(".")
     prompt = f"""
-Give the EXACT Bhagavad Gita {shloka_number} only (no other verses).
+You are a Bhagavad Gita scholar. Provide Chapter {chapter}, Verse {verse} of the Bhagavad Gita.
 
-Do not mix with nearby verses.
+STRICT RULES:
+- Give ONLY Chapter {chapter}, Verse {verse}. Do NOT include adjacent verses.
+- Sanskrit must be accurate and complete.
+- Do not add any introduction, conclusion, or extra commentary.
 
-Format:
-1. Shloka (Sanskrit)
-2. Meaning (simple)
-3. Learning (practical takeaway)
+FORMAT (follow exactly):
 
-Ensure correctness of the verse and names.
-Output only the formatted result.
+🕉️ Chapter {chapter}, Verse {verse}
+
+📖 Sanskrit:
+[Sanskrit shloka here]
+
+📝 Word-by-Word Meaning:
+[Break down key Sanskrit words and their meanings]
+
+💡 Simple Meaning:
+[1-2 sentence plain English meaning]
+
+🌱 Practical Takeaway:
+[1 actionable life lesson from this verse]
+
         """
     client = genai.Client(api_key=google_api)
     response = client.models.generate_content(
         model="gemini-2.5-flash",
         contents=prompt
     )
-    print(response.text)
     return response.text
 
 # Getting the Shlok Numbers by verses
