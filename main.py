@@ -33,15 +33,17 @@ with open("user.json","r") as f:
 # Generating Shloka if not there in the contents.json
 def generate_shloka(shloka_number):
     prompt = f"""
-        Give structured output for Bhagavad Gita shloka {shloka_number} in this format:
+Give the EXACT Bhagavad Gita Chapter 1, Verse 6 only (no other verses).
 
-        1. Shloka (sanskrit)
-        2. Meaning (simple)
-        3. Learning (practical takeaway)
-        4. 
+Do not mix with nearby verses.
 
-        Keep it clean and labeled. since i want to sent it directly in email to someone!
-        so dont even right here is your result, rather just give me the above mentioned things
+Format:
+1. Shloka (Sanskrit)
+2. Meaning (simple)
+3. Learning (practical takeaway)
+
+Ensure correctness of the verse and names.
+Output only the formatted result.
         """
     client = genai.Client(api_key=google_api)
     response = client.models.generate_content(
