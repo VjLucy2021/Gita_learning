@@ -33,7 +33,7 @@ with open("user.json","r") as f:
 # Generating Shloka if not there in the contents.json
 def generate_shloka(shloka_number):
     prompt = f"""
-Give the EXACT Bhagavad Gita Chapter 1, Verse 6 only (no other verses).
+Give the EXACT Bhagavad Gita {shloka_number} only (no other verses).
 
 Do not mix with nearby verses.
 
