@@ -54,6 +54,9 @@ FORMAT (follow exactly):
 💡 Simple Meaning:
 [1-2 sentence plain English meaning]
 
+📖 Detailed Meaning:
+[Explain the words in brief and the context]
+
 🌱 Practical Takeaway:
 [1 actionable life lesson from this verse]
 
