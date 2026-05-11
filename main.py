@@ -55,7 +55,7 @@ FORMAT (follow exactly):
 [1-2 sentence plain English meaning]
 
 📖 Detailed Meaning:
-[Explain the words in brief and the context]
+[Explain the words in brief and the context. And explain a bit in the story format a bit ]
 
 🌱 Practical Takeaway:
 [1 actionable life lesson from this verse]
