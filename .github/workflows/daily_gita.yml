@@ -30,6 +30,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
           ONE: ${{ secrets.ONE }}
           TWO: ${{ secrets.TWO }}
+          THREE: ${{ secrets.THREE }}
 
       - name: Commit updated files
         run: |
