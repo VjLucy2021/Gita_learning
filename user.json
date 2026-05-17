@@ -2,15 +2,15 @@
   "users": {
     "ONE": {
       "name": "Vraj",
-      "current_index": 13
+      "current_index": 14
     },
     "TWO": {
       "name": "Ami",
-      "current_index": 11
+      "current_index": 12
     },
     "THREE": {
       "name": "Shaishvee",
-      "current_index": 7
+      "current_index": 8
     }
   }
 }
