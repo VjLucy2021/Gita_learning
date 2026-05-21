@@ -36,8 +36,7 @@ def generate_shloka(shloka_number):
     prompt = f"""
 You are a Bhagavad Gita scholar. Provide Chapter {chapter}, Verse {verse} of the Bhagavad Gita.
 
-CRITICAL: Use ONLY the standard 700-verse edition of the Bhagavad Gita as found in the Bhishma Parva of the Mahabharata. Follow the verse numbering used by Swami Prabhupada's "Bhagavad Gita As It Is" or Swami Chinmayananda's edition. These are the most widely accepted numbering systems.
-
+CRITICAL: Use ONLY the standard 700-verse edition of the Bhagavad Gita as found in the Bhishma Parva of the Mahabharata. Follow the verse numbering used by Swami Prabhupada's "Bhagavad Gita As It Is" 
 
 STRICT RULES:
 - Give ONLY Chapter {chapter}, Verse {verse}. Do NOT include adjacent verses.
