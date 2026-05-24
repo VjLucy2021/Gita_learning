@@ -2,8 +2,10 @@ from email.mime.text import MIMEText
 from google import genai
 import os
 import smtplib
+import time
 from dotenv import load_dotenv
 import json
+import google.genai.errors
 
 load_dotenv()
 google_api = os.getenv("GOOGLE_API")
@@ -70,6 +72,18 @@ FORMAT (follow exactly):
     )
     return response.text
 
+def generate_shloka_with_retry(shlok_no, max_retries=3):
+    for attempt in range(max_retries):
+        try:
+            return generate_shloka(shlok_no)
+        except google.genai.errors.ServerError as e:
+            if attempt < max_retries - 1:
+                wait = 15 * (attempt + 1)
+                print(f"Attempt {attempt+1} failed, retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                raise
+
 # Getting the Shlok Numbers by verses
 
 shlok_number = load_shlokas()
@@ -100,9 +114,11 @@ for ROLL_NO, user in user_data["users"].items():
     shlok_no = shlok_number[index]
     email = os.getenv(ROLL_NO)
     if  shlok_no not in contents_data:
-        result = generate_shloka(shlok_no)
+        result = generate_shloka_with_retry(shlok_no)
         contents_data[shlok_no]=result
+        save_contents(contents_data)
         send_email(email, shlok_no, result)
+        time.sleep(15)
     else:
         content = contents_data.get(shlok_no)
         send_email(email, shlok_no, content)
@@ -114,7 +130,7 @@ for ROLL_NO, user in user_data["users"].items():
 
 
 
-save_contents(contents_data)
+
 
 with open("user.json", "w") as f:
     json.dump(user_data, f, indent=2)
