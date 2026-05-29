@@ -38,12 +38,15 @@ def generate_shloka(shloka_number):
     prompt = f"""
 You are a Bhagavad Gita scholar. Provide Chapter {chapter}, Verse {verse} of the Bhagavad Gita.
 
-CRITICAL: Use ONLY the standard 700-verse edition of the Bhagavad Gita as found in the Bhishma Parva of the Mahabharata. Follow the verse numbering used by Swami Prabhupada's "Bhagavad Gita As It Is" 
+CRITICAL CONSTRAINTS:
+1. Use ONLY the standard 700-verse edition of the Bhagavad Gita as found in the Bhishma Parva of the Mahabharata. 
+2. Follow the EXACT verse numbering and layout used by Swami Prabhupada's "Bhagavad Gita As It Is".
+3. SANITY CHECK: Before writing the Sanskrit, verify that the verse matches the actual text. For example, Chapter 1, Verse 24 must begin with "सञ्जय उवाच" and contain "स्थापयित्वा रथोत्तमम्" (it must not be confused with Arjuna's speech in verses 21-23). If a verse is combined (e.g., 21-22), output that specific combined block.
 
 STRICT RULES:
 - Give ONLY Chapter {chapter}, Verse {verse}. Do NOT include adjacent verses.
-- Sanskrit must be accurate and complete.
-- Do not add any introduction, conclusion, or extra commentary.
+- Sanskrit must be 100% accurate, complete, and properly punctuated with double dandas (॥).
+- Do not add any introduction, conclusion, or extra commentary outside the requested fields.
 
 FORMAT (follow exactly):
 
@@ -63,7 +66,6 @@ FORMAT (follow exactly):
 
 🌱 Practical Takeaway:
 [1 actionable life lesson from this verse]
-
         """
     client = genai.Client(api_key=google_api)
     response = client.models.generate_content(
