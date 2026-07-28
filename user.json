@@ -2,19 +2,19 @@
   "users": {
     "ONE": {
       "name": "Vraj",
-      "current_index": 77
+      "current_index": 78
     },
     "TWO": {
       "name": "Ami",
-      "current_index": 75
+      "current_index": 76
     },
     "THREE": {
       "name": "Shaishvee",
-      "current_index": 71
+      "current_index": 72
     },
     "FOUR": {
       "name": "Aakash",
-      "current_index": 63
+      "current_index": 64
     }
   }
 }
